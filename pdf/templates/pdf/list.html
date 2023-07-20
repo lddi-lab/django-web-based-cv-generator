@@ -8,24 +8,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h2>{{ user_profile.name }}</h2>
-    <h2>{{ user_profile.email }}</h2>
-    <h2>{{ user_profile.phone }}</h2>
-    <hr>
-    <br>
-    <p>Summary</p>
-    <p>{{user_profile.summary}}</p>
-    <hr>
-    <p>Skills</p>
-    <p>{{user_profile.skills}}</p>
-    <hr>
-    <p>Education</p>
-    <ul>
-        <li>Schooling: {{ user_profile.school }}</li>
-        <li>{{ user_profile.university }} from {{ user_profile.university }}</li>
-    </ul>
-    <hr>
-    <p>Previous Work</p>
-    <p>{{user_profile.previous_work}}</p>
+    <div class="containe">
+        <div class="row m-5">
+            <div class="col-md-12">
+                <h2>CV Database Profile List</h2>
+                {% for profile in profiles %}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ profile.name }}
+                    </div>
+                    <div class="col-md-6">
+                        <a href="/{{profile.id}}" class="btn btn-warning">Download CV</a>
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
